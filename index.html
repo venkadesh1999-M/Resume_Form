@@ -62,56 +62,85 @@
 
                 <div class="row m-2">
                     <div class="col-3">
-                        <h6><label for="inputPassword" class="col-form-label">Adderss</label></h6>
+                        <h6 class="mt-4"><label for="inputPassword" class="col-form-label">Objective</label></h6>
                     </div>
-                    <div class="col-8">
-                        <textarea class="form-control" id="adderss" rows="3"placeholder="Enter your Address"></textarea>
+                    <div class="col-8 mt-4">
+                        <textarea class="form-control" id="objective" rows="3" placeholder="Enter your Address"></textarea>
                     </div>
                 </div>
                 <!-- language -->
-                <div class="row m-2 mt-3 mb-3">
+                <div class="row m-2 mt-3">
                     <div class="col-3">
-                        <h6>Language </h6>                   
+                        <h6 class="mt-4">Language </h6>                   
                     </div>
                     <div class="col-8 d-flex">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="tamil" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                            Tamil
-                            </label>
-                        </div>
-                        <div class="form-check ms-5">
-                            <input class="form-check-input" type="checkbox" id="english" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                            English
-                            </label>
+                        <div class="row mt-4">
+                            <div class="col-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="tamil" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    Tamil
+                                    </label>    
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-check ms-2">
+                                    <input class="form-check-input" type="checkbox" id="english" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    English
+                                    </label>
+                                </div>
+                              </div>  
+                              <div class="col-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="tamil" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    Hindi
+                                    </label>    
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" id="english" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    Malyalam
+                                    </label>
+                                </div>
+                              </div>  
+                              <div class="col-4">
+                                <div class="form-check mt-3 ms-2">
+                                    <input class="form-check-input" type="checkbox" id="english" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    Others
+                                    </label>
+                                </div>
+                              </div>  
                         </div>
                     </div>
                 </div>
-                <!-- skills -->
-                 <div class="row m-2">
-                    <div class="col-3">
-                        <h6>Skills</h6>
-                    </div>
-                    <div class="col-8 d-flex">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="excel"checked />
-                            <label class="form-check-label" for="flexRadioDefault1">
-                            Excel
-                            </label>
-                        </div>
-                        <div class="form-check ms-5">
-                            <input class="form-check-input" type="checkbox" id="full-stack_developer"checked />
-                            <label class="form-check-label" for="flexRadioDefault1">
-                            Full-stack_developer
-                            </label>
-                        </div>
-                    </div>
-                 </div>
 
+
+                <!-- skills -->
+
+                <div class="row m-2 mt-3">
+                    <h6 class="mt-4 mb-4">Skills</h6>
+                    <div class="col-lg-5 col-sm-12 mt-2">
+                        <input type="text" id="1" class="form-control" placeholder="1">
+                      </div>
+                      <div  class="col-lg-5 col-sm-12 mt-2">
+                        <input type="text" id="2" class="form-control" placeholder="2">
+                      </div>
+                      <div class="col-lg-5 col-sm-12 mt-2">
+                        <input type="text" id="3" class="form-control" placeholder="3">
+                      </div>
+                      <div class="col-lg-5 col-sm-12 mt-2 mb-3">
+                        <input type="text" id="4" class="form-control" placeholder="4">
+                      </div>
+                </div>
+                
                  <!-- projects -->
                  <div class="row m-2 mt-3">
-                    <h6>Projects</h6>
+                    <h6 class="mb-4">Projects</h6>
                      <div class="col-3 ms-2 text-body-secondary">
                          <label for="inputPassword" class="col-form-label">Name</label>
                      </div>
@@ -135,7 +164,7 @@
                  <!-- Certification -->
 
                  <div class="row m-2 mt-3">
-                    <h6>Certification</h6>
+                    <h6 class="mt-4 mb-3">Certification</h6>
                     <div class="col-lg-5 col-sm-12 mt-2">
                         <input type="text" id="course_name" class="form-control" placeholder="course_name">
                       </div>
@@ -153,48 +182,48 @@
                 <!--  education-->
                   
                 <div class="row m-2">
-                    <h6>Eduction</h6>
+                    <h6 class="mt-4 mb-4">Eduction</h6>
                     <p class="text-body-secondary ms-3">Degree:</p>
-                    <div class="col-lg-5 col-sm-12 ms-3">
+                    <div class="col-lg-5 col-sm-12 ms-3 mt-2">
                         <input type="text" id="course_name" class="form-control" placeholder="course name">
                       </div>
-                      <div class="col-lg-5 col-sm-12">
+                      <div class="col-lg-5 col-sm-12 mt-2 ms-3">
                         <input type="text" id="institude_name" class="form-control" placeholder="institude name">
                       </div>
                       <div class="col-lg-5 col-sm-12 mt-2 ms-3">
                         <input type="text" id="year" class="form-control" placeholder="year">
                       </div>
-                      <div class="col-lg-5 col-sm-12 mt-2">
+                      <div class="col-lg-5 col-sm-12 mt-2 ms-3">
                         <input type="text" id="place" class="form-control" placeholder="place">
                       </div>
                 </div>
                 <div class="row m-2">
                     <p class="ms-3 mt-1 text-body-secondary">10th:</p>
-                    <div class="col-lg-5 col-sm-12 ms-3">
+                    <div class="col-lg-5 col-sm-12 ms-3 mt-2 ms-3">
                         <input type="text" id="course_name" class="form-control" placeholder="course name">
                       </div>
-                      <div class="col-lg-5 col-sm-12">
+                      <div class="col-lg-5 col-sm-12 mt-2 ms-3">
                         <input type="text" id="institude_name" class="form-control" placeholder="institude name">
                       </div>
                       <div class="col-lg-5 col-sm-12 mt-2 ms-3">
                         <input type="text" id="year" class="form-control" placeholder="year">
                       </div>
-                      <div class="col-lg-5 col-sm-12 mt-2">
+                      <div class="col-lg-5 col-sm-12 mt-2 ms-3">
                         <input type="text" id="place" class="form-control" placeholder="place">
                       </div>
                 </div>
                 <div class="row m-2">
                     <p class="ms-3 mt-1 text-body-secondary">12th:</p>
-                    <div class="col-lg-5 col-sm-12 ms-3">
+                    <div class="col-lg-5 col-sm-12 ms-3 mt-2">
                         <input type="text" id="course_name" class="form-control" placeholder="course name">
                       </div>
-                      <div class="col-lg-5 col-sm-12">
+                      <div class="col-lg-5 col-sm-12 ms-3 mt-2">
                         <input type="text" id="institude_name" class="form-control" placeholder="institude name">
                       </div>
                       <div class="col-lg-5 col-sm-12 mt-2 ms-3">
                         <input type="text" id="year" class="form-control" placeholder="year">
                       </div>
-                      <div class="col-lg-5 col-sm-12">
+                      <div class="col-lg-5 col-sm-12 mt-2 ms-3">
                         <input type="text" id="place" class="form-control" placeholder="place">
                       </div>
                 </div>
@@ -206,51 +235,38 @@
             <div class="col-lg-6 col-sm-12">
                 <h5 class="mt-2">Personal Details:</h5>
                 <div class="row m-2 mt-3">
-                   <div class="col-4 mt-2">
+                   <div class="col-4 mt-3 mb-3">
                         <label for="inputPassword" class="form-label">Father Name</label>
                     </div>
-                    <div class="col-8 mt-2">
+                    <div class="col-8 mt-3 mb-3">
                         <input type="text" class="form-control" id="father_name"placeholder="Enter Your Father Name">
                     </div>
                 </div>
                 <div class="row m-2">
-                    <div class="col-4 mt-2">
+                    <div class="col-4 mt-2 mb-3">
                         <label for="inputPassword" class="col-form-label">Mother Name</label>
                     </div>
-                    <div class="col-8 mt-2">
+                    <div class="col-8 mt-2 mb-3">
                         <input type="text" class="form-control" id="mother_name"placeholder="Enter Your Mother Name">
                     </div>
                 </div>
-                <div class="row m-2">
-                    <div class="col-4 mt-2">
-                        <label for="inputPassword" class="col-form-label">Father Occupation</label>
-                    </div>
-                    <div class="col-8 mt-2">
-                        <input type="text" class="form-control" placeholder="Enter father_occuopation">
-                    </div>
-                </div>
-                <div class="row m-2">
-                    <div class="col-4 mt-2">
-                        <label for="inputPassword" class="col-form-label">Mother Occupation</label>
-                    </div>
-                    <div class="col-8 mt-2">
-                        <input type="text" class="form-control" placeholder="Enter mother_occupation">
-                    </div>
-                </div>
-                <div class="row m-2">
-                    <div class="col-4 mt-2">
-                        <label for="inputPassword" class="col-form-label">Mother number</label>
-                    </div>
-                    <div class="col-8 mt-2">
-                        <input type="number" class="form-control" id="contact_number" placeholder="Enter Mother number">
-                    </div>
-                </div>
+               
+                
                 <div class="row m-2">
                     <div class="col-4 mt-2">
                         <label for="inputPassword" class="col-form-label">Father number</label>
                     </div>
                     <div class="col-8 mt-2">
                         <input type="number" class="form-control" id="contact_number" placeholder="Enter Father number">
+                    </div>
+                </div>
+
+                <div class="row m-2">
+                    <div class="col-4 mt-4">
+                        <label for="inputPassword" class="col-form-label">Objective</label>
+                    </div>
+                    <div class="col-8 mt-4">
+                        <textarea class="form-control" id="adderss" rows="4"placeholder="Enter your Address"></textarea>
                     </div>
                 </div>
 
