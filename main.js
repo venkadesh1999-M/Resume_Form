@@ -1,6 +1,6 @@
 let resume = 
     {
-    name:"venkadesh",
+    Full_name:"venkadesh",
     age:25,
     phone_number:"8838946021",
     email:"venkadesh@gmail.com",
