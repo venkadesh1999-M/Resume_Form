@@ -12,6 +12,13 @@
             width: 12%;
             padding: 10px;
         }
+        .add{
+            background-color: aliceblue;
+            padding:6px;
+            width: 150%;
+            border-radius: 6px;
+            font-size: 16px;
+        }
     </style>
 <body>
 
@@ -160,6 +167,7 @@
                      <div class="col-2 mt-2">
                          <input type="number" min="0" max="5" class="form-control" id="Duration" placeholder="1">
                      </div>
+                     
                  </div>
 
                  <!-- Certification -->
@@ -269,7 +277,7 @@
                         <label for="staticEmail" class="col-form-label">Company Name</label>
                     </div>
                     <div class="col-8 mb-3">
-                        <input type="text" class="form-control" id="company_name" placeholder="Enter Company name" onkeyup="add(this,'Company Name','work_Experience')">
+                        <input type="text" class="form-control" id="company_name" placeholder="Enter Company name" >
                     </div>
                 </div>
                 <div class="m-3 row">
@@ -277,7 +285,7 @@
                         <label for="staticEmail" class="col-form-label">Designation</label>
                     </div>
                     <div class="col-8 mb-3">
-                        <input type="text" class="form-control" id="designation"placeholder="Enter Your Designaion" onkeyup="add(this,'Designaion','work_Experience')">
+                        <input type="text" class="form-control" id="Designation"placeholder="Enter Your Designaion" >
                     </div>
                 </div>
                 <div class="m-3 row">
@@ -285,7 +293,7 @@
                         <label for="staticEmail" class="col-form-label">Years Of Experience</label>
                     </div>
                     <div class="col-3 mb-3">
-                        <input type="number" class="form-control" min="0" max="10" id="year" onkeyup="add(this,'Year.of.Exp','work_Experience')" >
+                        <input type="number" class="form-control" min="0" max="10" id="Year.of.Exp">
                     </div>
                 </div>
                 <div class="row m-3">
@@ -293,8 +301,11 @@
                         <label for="staticEmail" class="col-form-label">Phone Number</label>
                     </div>
                     <div class="col-5">
-                        <input type="number" class="form-control" id="phone_number" onkeyup="add(this,'Phone Number','work_Experience')">
+                        <input type="number" class="form-control" id="phone_number">
                     </div>
+                </div>
+                <div class="col-lg-1 col-sm-12 mt-2" >
+                    <button onclick = "addvalue('course','course_name_2','institude_name_2','year_2','place_2')" class="Add">Add</button>
                 </div>
     </div>
 <hr>
@@ -304,47 +315,57 @@
         <h6 class="mt-4 mb-4">Eduction</h6>
         <p class="text-body-secondary ms-3">Degree:</p>
         <div class="col-lg-3 col-sm-12 mt-2">
-            <input type="text" id="course_name" class="form-control" placeholder="course name">
+            <input type="text" id="course_name_1" class="form-control" placeholder="course name">
           </div>
           <div class="col-lg-3 col-sm-12 mt-2">
-            <input type="text" id="institude_name" class="form-control" placeholder="institude name">
+            <input type="text" id="institude_name_1" class="form-control" placeholder="institude name">
           </div>
-          <div class="col-lg-2 col-sm-12 mt-2">
-            <input type="text" id="year" class="form-control" placeholder="year">
+          <div class="col-lg-1 col-sm-12 mt-2">
+            <input type="number" id="year_1" class="form-control" placeholder="year">
           </div>
-          <div class="col-lg-4 col-sm-12 mt-2">
-            <input type="text" id="place" class="form-control" placeholder="place">
+          <div class="col-lg-3 col-sm-12 mt-2">
+            <input type="text" id="place_1" class="form-control" placeholder="Enter the place">
           </div>
+          <div class="col-lg-1 col-sm-12 mt-2" >
+            <button onclick = "addvalue('course','course_name_1','institude_name_1','year_1','place_1')" class="Add">Add</button>
+        </div>
+
     </div>
     <div class="row m-2">
         <p class="ms-3 mt-1 text-body-secondary">10th:</p>
         <div class="col-lg-3 col-sm-12 mt-2">
-            <input type="text" id="course_name" class="form-control" placeholder="course name">
+            <input type="text" id="course_name_2" class="form-control" placeholder="course name">
           </div>
           <div class="col-lg-3 col-sm-12 mt-2">
-            <input type="text" id="institude_name" class="form-control" placeholder="institude name">
+            <input type="text" id="institude_name_2" class="form-control" placeholder="institude name">
           </div>
-          <div class="col-lg-2 col-sm-12 mt-2">
-            <input type="text" id="year" class="form-control" placeholder="year">
+          <div class="col-lg-1 col-sm-12 mt-2">
+            <input type="text" id="year_2" class="form-control" placeholder="year">
           </div>
-          <div class="col-lg-4 col-sm-12 mt-2">
-            <input type="text" id="place" class="form-control" placeholder="place">
+          <div class="col-lg-3 col-sm-12 mt-2">
+            <input type="text" id="place_2" class="form-control" placeholder="place">
           </div>
+          <div class="col-lg-1 col-sm-12 mt-2" >
+            <button onclick = "addvalue('course','course_name_2','institude_name_2','year_2','place_2')" class="Add">Add</button>
+        </div>
     </div>
     <div class="row m-2">
         <p class="ms-3 mt-1 text-body-secondary">12th:</p>
         <div class="col-lg-3 col-sm-12 mt-2">
-            <input type="text" id="course_name" class="form-control" placeholder="course name">
+            <input type="text" id="course_name_3" class="form-control" placeholder="course name">
           </div>
           <div class="col-lg-3 col-sm-12 mt-2">
-            <input type="text" id="institude_name" class="form-control" placeholder="institude name">
+            <input type="text" id="institude_name_3" class="form-control" placeholder="institude name">
           </div>
-          <div class="col-lg-2 col-sm-12 mt-2">
-            <input type="text" id="year" class="form-control" placeholder="year">
+          <div class="col-lg-1   col-sm-12 mt-2">
+            <input type="text" id="year_3" class="form-control" placeholder="year">
           </div>
-          <div class="col-lg-4 col-sm-12 mt-2">
-            <input type="text" id="place" class="form-control" placeholder="place">
+          <div class="col-lg-3 col-sm-12 mt-2">
+            <input type="text" id="place_3" class="form-control" placeholder="place">
           </div>
+          <div class="col-lg-1 col-sm-12 mt-2" >
+            <button onclick = "addvalue('course','course_name_3','institude_name_3','year_3','place_3')" class="Add">Add</button>
+        </div>
     </div>  
 
 

@@ -1,9 +1,11 @@
 let resume = {
 
     personal_details :{},
-    work_Experience : {},
     skills:[],
-    hobbies:[]
+    hobbies:[],
+    course:[],
+    work_Experience : [],
+   
 }
 
 function add(e,key,p_key){
@@ -22,6 +24,25 @@ function addArrayValue(key){
     document.getElementById(key).value = "";
     display_output();
 }
+
+
+
+function addvalue(c_key,key1,key2,key3,key4){
+    let newObj = {};
+    newObj[key1] = document.getElementById(key1).value;
+    newObj[key2] = document.getElementById(key2).value;
+    newObj[key3] = document.getElementById(key3).value;
+    newObj[key4] = document.getElementById(key4).value;
+    resume[c_key].push(newObj)
+    document.getElementById(key1).value = "";
+    document.getElementById(key2).value = "";
+    document.getElementById(key3).value = "";
+    document.getElementById(key4).value = "";
+    display_output()
+  }
+  
+
+
 
 function display_output(){
     document.getElementById("output").innerHTML = JSON.stringify(resume)
