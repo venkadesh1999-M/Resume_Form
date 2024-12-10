@@ -5,7 +5,7 @@ let resume = {
     hobbies:[],
     course:[],
     work_Experience : [],
-   
+    
 }
 
 function add(e,key,p_key){
@@ -14,7 +14,7 @@ function add(e,key,p_key){
     }else{
     resume[key] = e.value
     }
-    display_output()
+    display_output() 
 }
 
 
