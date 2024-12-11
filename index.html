@@ -69,13 +69,13 @@
                     </div>
                     <div class="col-8 d-flex">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="male" checked>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" name="male" id="Gender" value = "Male" onclick="add(this,'Gender',null)">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Male
                             </label>
                         </div>
                         <div class="form-check ms-5">
-                            <input class="form-check-input" type="radio" id="female">
+                            <input class="form-check-input" type="radio" name="female" value="female" id = "Gender" onclick="add(this,'Gender',null)">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Female
                             </label>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <!-- language -->
-                <div class="row m-2 mt-3">
+                <!-- <div class="row m-2 mt-3">
                     <div class="col-3">
                         <h6 class="mt-4">Language </h6>
                     </div>
@@ -103,8 +103,8 @@
                         <div class="row mt-4">
                             <div class="col-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="tamil"
-                                        checked>
+                                    <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="Language_known" value="Tamil"
+                                     onclick="add(this,'Language_known',null)">
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         Tamil
                                     </label>
@@ -112,7 +112,7 @@
                             </div>
                             <div class="col-4">
                                 <div class="form-check ms-2">
-                                    <input class="form-check-input" type="checkbox" id="english" checked>
+                                    <input class="form-check-input" type="checkbox" id="Language_known" value="English" onclick="add(this,'Language_known',null)">
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         English
                                     </label>
@@ -120,8 +120,8 @@
                             </div>
                             <div class="col-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="tamil"
-                                        checked>
+                                    <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="Language_known"
+                                    value="Hindi" onclick="add(this,'Language_known',null)">
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         Hindi
                                     </label>
@@ -129,7 +129,7 @@
                             </div>
                             <div class="col-4">
                                 <div class="form-check mt-3">
-                                    <input class="form-check-input" type="checkbox" id="english" checked>
+                                    <input class="form-check-input" type="checkbox" id="english" value="Language_known" onclick="add(this,'Language_known',null)">
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         Malyalam
                                     </label>
@@ -137,7 +137,7 @@
                             </div>
                             <div class="col-4">
                                 <div class="form-check mt-3 ms-2">
-                                    <input class="form-check-input" type="checkbox" id="english" checked>
+                                    <input class="form-check-input" type="checkbox" id="Language_known" value="others" onclick="add(this,'Language_known',null)">
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         Others
                                     </label>
@@ -147,6 +147,18 @@
                     </div>
                 </div>
 
+                
+ -->
+                <!-- Language known -->
+                <div class="row m-2 mt-3">
+                    <h6 class="mt-2 mb-4">Language_known</h6>
+                    <div class="col-lg-7 col-sm-12">
+                        <input type="text" id="Language_known" class="form-control" placeholder="Enter Language_known">
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                        <button class="btn-primary p-1 w-50 rounded" onclick="addArrayValue('Language_known')">Add</button>
+                    </div>
+                </div>
 
                 <!-- skills -->
 
@@ -183,7 +195,7 @@
                     </div>
                     <div class="row">
                     <div class="col-lg-2 col-sm-12 m-2">
-                    <button onclick="addvalue('projects','project_name','company_name','Duration_4',null)"
+                    <button onclick="addvalue('projects','project_name','company_name','Duration_4')"
                         class="Add">Add</button>
                         </div>
                 </div>
@@ -270,13 +282,13 @@
                     </div>
                     <div class="col-8 d-flex mt-4">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="male" checked>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Marital_Status" value="Single" onclick="add(this,'Marital_Status',null)">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Single
                             </label>
                         </div>
                         <div class="form-check ms-5">
-                            <input class="form-check-input" type="radio" id="female">
+                            <input class="form-check-input" type="radio" id="Marital_Status" value="Married" onclick="add(this,'Marital_Status',null)">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Married
                             </label>
@@ -424,10 +436,13 @@
             <script type="module">
                 let resume = {
                     personal_details: {},
+                    Gender:[],
                     certification: [],
                     skills: [],
+                    Marital_Status:[],
                     hobbies: [],
                     course: [],
+                    Language_known : [],
                     workExperience: [],
                     projects:[]
                     
@@ -468,7 +483,7 @@
                     document.getElementById(key2).value = "";
                     document.getElementById(key3).value = "";
                     document.getElementById(key4).value = "";
-                    }
+                     }
                     else if(key3){
                     newObj[key1] = document.getElementById(key1).value;
                     newObj[key2] = document.getElementById(key2).value;
@@ -518,10 +533,14 @@
                             fullname: document.getElementById("name").value,
                             email: document.getElementById("email").value,
                             Dob: document.getElementById("dob").value,
+                            Gender: document.getElementById('Gender').value,
                             Objective: document.getElementById("objective").value,
                             Education: JSON.stringify(resume.course),
                             personal_details : JSON.stringify(resume.personal_details),
                             projects: JSON.stringify(resume.projects),
+                            hobbies:JSON.stringify(resume.hobbies),
+                            Marital_Status:document.getElementById("Marital_Status").value,
+                            Language_known:JSON.stringify(resume.Language_known),
                             workExperience:JSON.stringify(resume.workExperience),
                             certification:JSON.stringify(resume.certification),
                             projects:JSON.stringify(resume.projects)
@@ -531,7 +550,7 @@
                             // Father_Number: document.getElementById("contact_number").value
 
                         });
-                    alert("Login Successfull !")
+                    alert("Submitted Successfully !")
                 })
 
             </script>
