@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="./index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./firbase.html">
+    <!-- <script src="./index.js"></script> -->
+     <!-- --------------------------------Boostrap----------------------------------------- -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
     <!-- firebase  -->
     <!-- <script src="./main_fire.js"></script> -->
 
@@ -62,7 +64,8 @@
                     </div>
                 </div>
 
-                <!-- Gender -->
+                <!------------------------------------------------GENDER --------------------------------------------->
+
                 <div class="row m-2">
                     <div class="col-3">
                         <h6>Gender</h6>
@@ -83,7 +86,7 @@
                     </div>
                 </div>
 
-                <!-- Address -->
+                <!--------------------------------------------- ADDRESS ----------------------------------------------->
 
                 <div class="row m-2">
                     <div class="col-3">
@@ -149,7 +152,9 @@
 
                 
  -->
-                <!-- Language known -->
+                <!------------------------------------------ Language known -------------------------------------->
+               
+               
                 <div class="row m-2 mt-3">
                     <h6 class="mt-2 mb-4">Language_known</h6>
                     <div class="col-lg-7 col-sm-12">
@@ -172,7 +177,9 @@
                     </div>
                 </div>
 
-                <!-- projects -->
+                <!-- -----------------------------------------------PROJECTS ------------------------------------------->
+                
+                
                 <div class="row m-2 mt-3">
                     <h6 class="mb-4">Projects</h6>
                     <div class="col-3 ms-2 text-body-secondary">
@@ -201,7 +208,7 @@
                 </div>
                 </div>
 
-                <!-- Certification -->
+                <!-------------------------------------------- CERTIFICATION-------------------------------------- -->
 
                 <div class="row m-2 mt-3">
                     <h6 class="mt-4 mb-3">Certification</h6>
@@ -223,24 +230,23 @@
                     <button onclick="addvalue('certification','course_name1','acadamey_name1','year_2','duration_2')"
                         class="Add">Add</button>
                 </div>
-
-                <!--  education-->
-
-
             </div>
 
 
-            <!-- Side Page Starting -->
+            <!------------------------------------------------ Side Page Starting ------------------------------------------->
+
+            <!------------------------------------------------ PERSONAL DETAILS ------------------------------------------->
+
 
             <div class="col-lg-6 col-sm-12">
                 <h5 class="mt-2">Personal Details:</h5>
                 <div class="row m-2 mt-3">
                     <div class="col-4 mt-3 mb-3">
-                        <label for="inputPassword" class="form-label">Father Name</label>
+                        <label for="inputPassword" class="form-label">Father_Name</label>
                     </div>
                     <div class="col-8 mt-3 mb-3">
                         <input type="text" class="form-control" id="father_name" placeholder="Enter Your Father Name"
-                            onkeyup="add(this,'Father Name','personal_details')">
+                            onkeyup="add(this,'father_Name','personal_details')">
                     </div>
                 </div>
                 <div class="row m-2">
@@ -249,7 +255,7 @@
                     </div>
                     <div class="col-8 mt-2 mb-3">
                         <input type="text" class="form-control" id="mother_name" placeholder="Enter Your Mother Name"
-                            onkeyup="add(this,'Mother Name','personal_details')">
+                            onkeyup="add(this,'mother_name','personal_details')">
                     </div>
                 </div>
 
@@ -274,7 +280,7 @@
                     </div>
                 </div>
 
-                <!-- marital Status -->
+                <!-------------------------------------------- MARITAL STATUS -------------------------------------------->
 
                 <div class="row m-2">
                     <div class="col-4 mt-4">
@@ -296,7 +302,7 @@
                     </div>
                 </div>
 
-                <!-- Hobbies -->
+                <!------------------------------------------------- HOBBIES ----------------------------------------------->
 
                 <div class="row mt-3">
                     <h5 class="mb-3">Hobbies</h5>
@@ -309,7 +315,7 @@
                 </div>
 
 
-                <!-- Work Experience -->
+                <!----------------------------------------------- WORK EXPERIENCE -------------------------------------------->
 
                 <h5 class="mt-4 mb-3">Work Experience</h5>
                 <div class="row m-3 mt-4 mb-1">
@@ -351,11 +357,15 @@
 
             </div>
             <hr>
-            <!-- Column Closed -->
+
+
+            <!------------------------------------------------------ COLUUMN CLOSED ------------------------------------->
+
+            <!------------------------------------------------ ------EDUCATION ------------------------------------------>
 
             <div class="row m-2">
                 <h6 class="mt-4 mb-4">Eduction</h6>
-                <p class="text-body-secondary ms-3">Degree:</p>
+                <p class="text-body-secondary ms-3">Details:</p>
                 <div class="col-lg-3 col-sm-12 mt-2">
                     <input type="text" id="course_name_1" class="form-control" placeholder="course name">
                 </div>
@@ -414,7 +424,7 @@
             </div>
  -->
 
-            <div class="form-check m-2 mb-5 mt-5">
+            <div class="form-check m-2 mb-4 mt-5">
 
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
@@ -423,6 +433,10 @@
                 </label>
             </div>
 
+
+            <!------------------------------------------------ BUTTON------------------------------------------->
+           
+           
             <button type="button" class="btn btn-primary btn-sm-12" id="submit">Submit</button>
 
             <section class="mt-4">
@@ -430,7 +444,7 @@
             </section>
 
 
-            <!-- script File Linked -->
+            <!------------------------------------- SCRIPT FILE LINKED -------------------------------------------->
 
             
             <script type="module">
@@ -503,12 +517,17 @@
                     document.getElementById("output").innerHTML = JSON.stringify(resume)
                 }
 
+                // <---------------------------------------FireBase Link ------------------------------->
+
 
                 // Import the functions you need from the SDKs you need
                 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-                import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
-
-
+                import { getDatabase, ref, set, get, child} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+                
+                // const appSetting = {
+                //     databaseURL : "https://resume-project-b1255-default-rtdb.firebaseio.com/",
+                // };
+ 
                 // Your web app's Firebase configuration
                 const firebaseConfig = {
                     apiKey: "AIzaSyCixAsqF-OnKJfhlMB-2OMBWxyVL5mYZaU",
