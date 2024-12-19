@@ -78,12 +78,11 @@
         function display(){
             onValue(initialDbdata, function (snapshot){
                 const data = snapshot.val();
-                let userArray =Object.entries(data);
                 let trs = "";
+                if(snapshot.exists()){
+                let userArray =Object.entries(data);
                 let index = 1;  
                 for(let each of userArray){
-
-                    console.log(each)
                    trs = trs + `
                      <tr>
                         <td>${index}</td>
@@ -102,10 +101,9 @@
                    `
                    index++
                 }
-                document.getElementById("tBody").innerHTML = trs
-                
+             }
+             document.getElementById("tBody").innerHTML = trs
             })
-           
         }
 
         window.displayresume = display
