@@ -54,14 +54,27 @@
                     </div>
                 </div>
 
-                   <!--------------------------------------------DTAE OF BIRTH ----------------------------------------->
+
+                  <!--------------------------------------------Contact Number ----------------------------------------->
+
+                  <div class="row m-2">
+                    <div class="col-3">
+                        <h6><label for="inputPassword" class="col-form-label">Contact Number</label></h6>
+                    </div>
+                    <div class="col-8">
+                        <input type="number" class="form-control" onkeyup="add(this,'contact_number',null)" id="contact_number"
+                            placeholder="Enter your mobile number">
+                    </div>
+                </div>
+
+                   <!--------------------------------------------DATEE OF BIRTH ----------------------------------------->
 
                 <div class="row m-2">
                     <div class="col-3">
                         <h6><label for="inputPassword" class="col-form-label">Date Of Birth</label></h6>
                     </div>
                     <div class="col-8">
-                        <input type="date" class="form-control" onkeyup="add(this,'DOB',null)" id="dob" placeholder="">
+                        <input type="date" class="form-control" onkeyup="add(this,'dob',null)" id="dob" placeholder="">
                     </div>
                 </div>
 
@@ -166,7 +179,7 @@
                     </div>
                 </div>
 
-                <!-- skills -->
+                <!------------------------------------------------ SKILLS------------------------------------------------>
 
                 <div class="row m-2 mt-3">
                     <h6 class="mt-2 mb-3">Skills</h6>
@@ -177,6 +190,7 @@
                         <button class="Add" onclick="addArrayValue('skills')">Add</button>
                     </div>
                 </div>
+
 
                 <!-- -----------------------------------------------PROJECTS ------------------------------------------->
                 
@@ -246,7 +260,7 @@
                     </div>
                     <div class="col-8 mt-3 mb-3">
                         <input type="text" class="form-control" id="father_name" placeholder="Enter Your Father Name"
-                            onkeyup="add(this,'father_Name','personal_details')">
+                            onkeyup="add(this,'father_name','personal_details')">
                     </div>
                 </div>
                 <div class="row m-2">
@@ -259,24 +273,13 @@
                     </div>
                 </div>
 
-
-                <div class="row m-2">
-                    <div class="col-4 mt-2">
-                        <label for="inputPassword" class="col-form-label">Father number</label>
-                    </div>
-                    <div class="col-8 mt-2">
-                        <input type="number" class="form-control" id="contact_number" placeholder="Enter Father number"
-                            onkeyup="add(this,'Phone_number','personal_details')">
-                    </div>
-                </div>
-
                 <div class="row m-2">
                     <div class="col-4 mt-4">
                         <label for="inputPassword" class="col-form-label">Address</label>
                     </div>
                     <div class="col-8 mt-4">
-                        <textarea class="form-control" id="adderss" rows="4" placeholder="Enter your Address"
-                            onkeyup="add(this,'Adderss','personal_details')"></textarea>
+                        <textarea class="form-control" id="address" rows="4" placeholder="Enter your Address"
+                            onkeyup="add(this,'address','personal_details')"></textarea>
                     </div>
                 </div>
 
@@ -343,16 +346,8 @@
                         <input type="number" class="form-control" min="0" max="10" id="yoe_3">
                     </div>
                 </div>
-                <div class="row m-3">
-                    <div class="col-4">
-                        <label for="staticEmail" class="col-form-label">Phone Number</label>
-                    </div>
-                    <div class="col-7">
-                        <input type="number" class="form-control" id="mobile_number3">
-                    </div>
-                </div>
                 <div class="col-lg-1 col-sm-2 m-4">
-                    <button onclick="addvalue('workExperience','company_name_4','Designation_4','yoe_3','mobile_number3')"
+                    <button onclick="addvalue('workExperience','company_name_4','Designation_4','yoe_3')"
                         class="Add">Add</button>
                 </div>
 
@@ -414,7 +409,6 @@
             <script type="module">
                 let resume = {
                     personal_details: {},
-                    Gender:[],
                     certification: [],
                     skills: [],
                     Marital_Status:[],
@@ -484,7 +478,7 @@
                 // <---------------------------------------FireBase Link ------------------------------->
 
 
-                // Import the functions you need from the SDKs you need
+                // Import the functions you need from the SDKs you need 
                 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
                 import { getDatabase, ref, set, get, child,push} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
                 
@@ -518,13 +512,15 @@
                         {
                             fullname: document.getElementById("name").value,
                             email: document.getElementById("email").value,
-                            Dob: document.getElementById("dob").value,
+                            contact_number: document.getElementById("contact_number").value,
+                            dob: document.getElementById("dob").value,
                             Gender: document.getElementById('Gender').value,
                             Objective: document.getElementById("objective").value,
-                            Education: JSON.stringify(resume.course),
+                            course: JSON.stringify(resume.course),
                             personal_details : JSON.stringify(resume.personal_details),
                             projects: JSON.stringify(resume.projects),
                             hobbies:JSON.stringify(resume.hobbies),
+                            skills:JSON.stringify(resume.skills),
                             Marital_Status:document.getElementById("Marital_Status").value,
                             Language_known:JSON.stringify(resume.Language_known),
                             workExperience:JSON.stringify(resume.workExperience),
@@ -532,11 +528,20 @@
                             projects:JSON.stringify(resume.projects)
 
                         })
+                    Delete()
                     alert("Submitted Successfully !")
-                }
+                    document.getElementById("output").innerHTML = ""
 
-                
-            )
+                })
+
+
+                function Delete(){
+                    document.getElementById("name").value = ""
+                    document.getElementById("email").value = ""
+                    document.getElementById("contact_number").value = ""
+                    document.getElementById('Gender').value = ""
+                    document.getElementById("objective").value = ""
+                }
 
             </script>
 

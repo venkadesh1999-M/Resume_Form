@@ -21,6 +21,13 @@
 
 <!-------------------------------------------------------CSS STYLE  ------------------------------------------------>
     <style>
+        .btn{
+            background-color: rgb(91, 154, 247);
+            width: 100px;
+            padding: 10px;
+            margin-top: 10px;
+            margin-left: 15px;
+        }
         .btn-edit ion-icon,
         .btn-delete ion-icon{
                  pointer-events: none;
@@ -32,43 +39,390 @@
                     width: 250px;
                     padding: 8px;
                     }
+                    .Add{
+                        background-color: antiquewhite;
+                        padding: 4px;
+                        width: 75px;
+                    }
     </style>
 
 
 <!-------------------------------------------------------TABLE LIST --------------------------------------------->
 
     <h1 class="text-center">Resume Builder</h1>
-    <div class="container">
-        <form action="#" id="form" class="mt-5">
-            <input type="hidden" id="id"/>
-            <div class="row">
-                <div class="col-lg-1 mt-2">
-                    <label for="name">Name</label>
+    <div class="container bg-primary-subtle p-5">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <input type="hidden" id="id">
+                <div class="row m-2">
+                    <div class="col-3">
+                        <h6><label for="inputPassword" class="col-form-label">Full Name</label></h6>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" id="name" onkeyup="add(this,'fullname',null)"
+                            placeholder="Enter your name">
+                    </div>
                 </div>
-                <div class="col-lg-3">
-                    <input type="text" id="name" placeholder="EnterFull name">
+
+                <!--------------------------------------------EMAIL ----------------------------------------->
+
+                <div class="row m-2">
+                    <div class="col-3">
+                        <h6><label for="inputPassword" class="col-form-label">Email</label></h6>
+                    </div>
+                    <div class="col-8">
+                        <input type="email" class="form-control" onkeyup="add(this,'email',null)" id="email"
+                            placeholder="Enter your email">
+                    </div>
                 </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-lg-1 mt-2">
-                    <label for="email">Email</label>
+
+
+                  <!--------------------------------------------Contact Number ----------------------------------------->
+
+                  <div class="row m-2">
+                    <div class="col-3">
+                        <h6><label for="inputPassword" class="col-form-label">Contact Number</label></h6>
+                    </div>
+                    <div class="col-8">
+                        <input type="number" class="form-control" onkeyup="add(this,'contact_number',null)" id="contact_number"
+                            placeholder="Enter your mobile number">
+                    </div>
                 </div>
-                <div class="col-lg-3">
-                    <input type="email" id="email" placeholder="Enter Your Email">
+
+                   <!--------------------------------------------DATEE OF BIRTH ----------------------------------------->
+
+                <div class="row m-2">
+                    <div class="col-3">
+                        <h6><label for="inputPassword" class="col-form-label">Date Of Birth</label></h6>
+                    </div>
+                    <div class="col-8">
+                        <input type="date" class="form-control" onkeyup="add(this,'dob',null)" id="dob" placeholder="">
+                    </div>
                 </div>
+
+                <!------------------------------------------------GENDER --------------------------------------------->
+
+                <div class="row m-2">
+                    <div class="col-3">
+                        <h6>Gender</h6>
+                    </div>
+                    <div class="col-8 d-flex">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" name="male" id="Gender" value = "Male" onclick="add(this,'Gender',null)">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check ms-5">
+                            <input class="form-check-input" type="radio" name="female" value="female" id = "Gender" onclick="add(this,'Gender',null)">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!--------------------------------------------- ADDRESS ----------------------------------------------->
+
+                <div class="row m-2">
+                    <div class="col-3">
+                        <h6 class="mt-4"><label for="inputPassword" class="col-form-label">Objective</label></h6>
+                    </div>
+                    <div class="col-8 mt-4">
+                        <textarea class="form-control" id="objective" rows="3" onkeyup="add(this,'Objective',null)"
+                            placeholder="Enter your Objective"></textarea>
+                    </div>
+                </div>
+              
+              <!------------------------------------------ Language known -------------------------------------->
+               
+               
+                <div class="row m-2 mt-3">
+                    <h6 class="mt-2 mb-4">Language_known</h6>
+                    <div class="col-lg-7 col-sm-12 mb-2">
+                        <input type="text" id="Language_known" class="form-control" placeholder="Enter Language_known">
+                    </div>
+                    <div class="col-lg-2 col-sm-2">
+                        <button class="Add" onclick="addArrayValue('Language_known')">Add</button>
+                    </div>
+                    <ul id="list_1">
+                
+                    </ul>
+
+                </div>
+
+                <!------------------------------------------------ SKILLS------------------------------------------------>
+
+                <div class="row m-2 mt-3">
+                    <h6 class="mt-2 mb-3">Skills</h6>
+                    <div class="col-lg-7 col-sm-12 mb-2">
+                        <input type="text" id="skills" class="form-control" placeholder="Enter Skills">
+                    </div>
+                    <div class="col-lg-2 col-sm-2">
+                        <button class="Add" onclick="addArrayValue('skills')">Add</button>
+                    </div>
+                    <ul id="list_2">
+                
+                    </ul>
+                </div>
+
+
+                <!-- -----------------------------------------------PROJECTS ------------------------------------------->
+                
+                
+                <div class="row m-2 mt-3">
+                    <h6 class="mb-4">Projects</h6>
+                    <div class="col-3 ms-2 text-body-secondary">
+                        <label for="inputPassword" class="col-form-label">Name</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" id="project_name" placeholder="Enter project name">
+                    </div>
+                    <div class="col-3 ms-2 mt-2 text-body-secondary">
+                        <label for="inputPassword" class="col-form-label">Company</label>
+                    </div>
+                    <div class="col-8 mt-2">
+                        <input type="text" class="form-control" id="company_name" placeholder="Enter company name">
+                    </div>
+                    <div class="col-3 ms-2 mt-2 text-body-secondary">
+                        <label for="inputPassword" class="col-form-label">Duration</label>
+                    </div>
+                    <div class="col-3 mt-2">
+                        <input type="number" min="0" max="5" class="form-control" id="Duration_4" placeholder="1">
+                    </div>
+                    <div class="row">
+                    <div class="col-lg-2 col-sm-2 m-2">
+                    <button onclick="addvalue('projects','project_name','company_name','Duration_4')"
+                        class="Add">Add</button>
+                    </div>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>project_name</th>
+                            <th>company_name</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_1"></tbody>
+                </table>
             </div>
 
-            <button type="button" onclick="update()" class="btn bg-primary text-white mt-4" class="btn"><ion-icon name="save-outline" class="me-2"></ion-icon>Save</button>
-        </form>
+                <!-------------------------------------------- CERTIFICATION-------------------------------------- -->
+
+                <div class="row m-2 mt-3">
+                    <h6 class="mt-4 mb-3">Certification</h6>
+                    <div class="col-lg-5 col-sm-12 mt-2">
+                        <input type="text" id="course_name1" class="form-control" placeholder="course_name">
+                    </div>
+                    <div class="col-lg-5 col-sm-12 mt-2">
+                        <input type="text" id="acadamey_name1" class="form-control" placeholder="acadamey name">
+                    </div>
+                    <div class="col-lg-5 col-sm-12 mt-2">
+                        <input type="text" id="year_2" class="form-control" placeholder="year">
+                    </div>
+                    <div class="col-lg-5 col-sm-12 mt-2 mb-2">
+                        <input type="number" id="duration_2" class="form-control" placeholder="Duration">
+                    </div>
+                </div>
+                    <div class="col-lg-1 col-sm-2 ms-3 mb-4">
+                        <button onclick="addvalue('certification','course_name1','acadamey_name1','year_2','duration_2')"
+                            class="Add">Add</button>
+                </div>
+                <table class="table table-striped w-100 ms-2">
+                    <thead>
+                        <tr class="ms-2">
+                            <th>course_name</th>
+                            <th>acadamy_name</th>
+                            <th>year</th>
+                            <th>Duartion</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_2">
+                       
+                    </tbody>
+                </table>
+
+            </div>
+
+
+            <!------------------------------------------------ Side Page Starting ------------------------------------------->
+
+            <!------------------------------------------------ PERSONAL DETAILS ------------------------------------------->
+
+
+            <div class="col-lg-6 col-sm-12">
+                <h5 class="mt-2">Personal Details:</h5>
+                <div class="row m-2 mt-3">
+                    <div class="col-4 mt-3 mb-3">
+                        <label for="inputPassword" class="form-label">Father_Name</label>
+                    </div>
+                    <div class="col-8 mt-3 mb-3">
+                        <input type="text" class="form-control" id="father_name" placeholder="Enter Your Father Name"
+                            onkeyup="add(this,'father_name','personal_details')">
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-4 mt-2 mb-3">
+                        <label for="inputPassword" class="col-form-label">Mother Name</label>
+                    </div>
+                    <div class="col-8 mt-2 mb-3">
+                        <input type="text" class="form-control" id="mother_name" placeholder="Enter Your Mother Name"
+                            onkeyup="add(this,'mother_name','personal_details')">
+                    </div>
+                </div>
+
+                <div class="row m-2">
+                    <div class="col-4 mt-4">
+                        <label for="inputPassword" class="col-form-label">Address</label>
+                    </div>
+                    <div class="col-8 mt-4">
+                        <textarea class="form-control" id="address" rows="4" placeholder="Enter your Address"
+                            onkeyup="add(this,'address','personal_details')"></textarea>
+                    </div>
+                </div>
+
+                <!-------------------------------------------- MARITAL STATUS -------------------------------------------->
+
+                <div class="row m-2">
+                    <div class="col-4 mt-4">
+                        <p>Marital Status</p>
+                    </div>
+                    <div class="col-8 d-flex mt-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Marital_Status" value="Yes" onclick="add(this,'Marital_Status',null)">
+                            <label>
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check ms-5">
+                            <input class="form-check-input" type="radio" id="Marital_Status" value="No" onclick=" add(this,'Marital_Status',null)">
+                            <label>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!------------------------------------------------- HOBBIES ----------------------------------------------->
+
+                <div class="row mt-3">
+                    <h5 class="mb-4">Hobbies</h5>
+                    <div class="col-lg-7 col-sm-12 mb-3 ms-4">
+                        <input type="text" id="hobbies" class="form-control" placeholder="Enter Hobbies">
+                    </div>
+                    <div class="col-lg-2 col-sm-2">
+                        <button class="Add" onclick="addArrayValue('hobbies')">Add</button>
+                    </div>
+                    <ul id="list_3"></ul>
+                </div>
+
+
+                <!----------------------------------------------- WORK EXPERIENCE -------------------------------------------->
+
+                <h5 class="mt-4 mb-3">Work Experience</h5>
+                <div class="row m-3 mt-4 mb-1">
+                    <div class="col-4">
+                        <label for="staticEmail" class="col-form-label">Company Name</label>
+                    </div>
+                    <div class="col-8 mb-3">
+                        <input type="text" class="form-control" id="company_name_4" placeholder="Enter Company name">
+                    </div>
+                </div>
+                <div class="m-3 row">
+                    <div class="col-4 mb-3">
+                        <label for="staticEmail" class="col-form-label">Designation</label>
+                    </div>
+                    <div class="col-8 mb-3">
+                        <input type="text" class="form-control" id="Designation_4" placeholder="Enter Your Designaion">
+                    </div>
+                </div>
+                <div class="m-3 row">
+                    <div class="col-4 mb-3">
+                        <label for="staticEmail" class="col-form-label">Years Of Experience</label>
+                    </div>
+                    <div class="col-3 mb-3">
+                        <input type="number" class="form-control" min="0" max="10" id="yoe_3">
+                    </div>
+                </div>
+                <div class="col-lg-1 col-sm-2 m-4">
+                    <button onclick="addvalue('workExperience','company_name_4','Designation_4','yoe_3')"
+                        class="Add">Add</button>
+                </div>
+                <table class="table table-striped w-100 ms-2">
+                    <thead>
+                        <tr class="ms-2">
+                            <th>course_name</th>
+                            <th>Designaion</th>
+                            <th>year</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_4">
+                       
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+
+
+            <!------------------------------------------------------ COLUUMN CLOSED ------------------------------------->
+
+            <!------------------------------------------------ ------EDUCATION ------------------------------------------>
+
+            <div class="row m-2">
+                <h6 class="mt-2 mb-4">Eduction</h6>
+                <p class="text-body-secondary ms-3">Details:</p>
+                <div class="col-lg-3 col-sm-12 mt-2">
+                    <input type="text" id="course_name_1" class="form-control" placeholder="course name">
+                </div>
+                <div class="col-lg-3 col-sm-12 mt-2">
+                    <input type="text" id="institude_name_1" class="form-control" placeholder="institude name">
+                </div>
+                <div class="col-lg-2 col-sm-12 mt-2">
+                    <input type="number" id="year_1" class="form-control" placeholder="year">
+                </div>
+                <div class="col-lg-3 col-sm-12 mt-2 mb-2">
+                    <input type="text" id="place_1" class="form-control" placeholder="Enter the place">
+                </div>
+                <div class="col-lg-1 col-sm-2 mt-2">
+                    <button onclick="addvalue('course','course_name_1','institude_name_1','year_1','place_1')"
+                        class="Add">Add</button>
+                </div>
+                <table class="table table-striped w-100 ms-2">
+                    <thead>
+                        <tr class="ms-2">
+                            <th>course_name</th>
+                            <th>institude_name</th>
+                            <th>year</th>
+                            <th>place</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_3">
+                       
+                    </tbody>
+                </table>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm-12" id="submit" onclick="updateResume()">
+                <ion-icon name= "save-outline"></ion-icon>Save
+            </button>   
+        </div>
+     </div>
+
+
+     
+       
 
     <!-----------------------------------------------------Table Create-------------------------------------------------------- -->
-
-    <table class="table table-striped w-50 mt-3">
+<h1 class="ms-4 mt-3">Table</h1>
+    <table class="table table-striped w-75 mt-3 ms-5">
         <thead>
             <tr>
                 <th>S.no</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Objective</th>
+                <th>Phone_number</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -78,8 +432,95 @@
         </tbody>
     </table>
 
-    <!-----------------------------------------------------FireBase -------------------------------------------------------- -->
+    <section class="mt-4">
+        <code id="output" class="fs-4"></code>
+    </section>
+
+
+    <!-----------------------------------------------------SCRIPT-------------------------------------------------------- -->
+    
     <script type="module">
+        let resume = {
+            personal_details: {},
+            Gender:[],
+            certification: [],
+            skills: [],
+            Marital_Status:[],
+            hobbies: [],
+            course: [],
+            Language_known : [],
+            workExperience: [],
+            projects:[]
+            
+        }
+
+        function add(e, key, p_key) {
+            if (p_key) {
+                resume[p_key][key] = e.value
+
+            } else {
+                resume[key] = e.value
+
+            }
+            display_output()
+        }   
+        window.add = add
+
+        function addArrayValue(key) {
+            let value = document.getElementById(key).value;
+            resume[key].push(value);
+            document.getElementById(key).value = "";
+            if(key == "Language_known"){
+                update_value(resume.Language_known,"list_1")
+            }
+            else if(key == "skills"){
+                update_value(resume.skills,"list_2")
+            }
+            else if(key == "hobbies"){
+                update_value(resume.hobbies,"list_3")
+            }
+        }
+
+        window.addArrayValue= addArrayValue
+
+        function addvalue(c_key,key1,key2,key3,key4) {
+            let newObj = {};
+            if(key4){
+            newObj[key1] = document.getElementById(key1).value;
+            newObj[key2] = document.getElementById(key2).value;
+            newObj[key3] = document.getElementById(key3).value;
+            newObj[key4] = document.getElementById(key4).value;
+            resume[c_key].push(newObj)
+            document.getElementById(key1).value = "";
+            document.getElementById(key2).value = "";
+            document.getElementById(key3).value = "";
+            document.getElementById(key4).value = "";
+            update_certification()
+            update_course()
+            }
+            else if(key3){
+            newObj[key1] = document.getElementById(key1).value;
+            newObj[key2] = document.getElementById(key2).value;
+            newObj[key3] = document.getElementById(key3).value;
+            resume[c_key].push(newObj)
+            document.getElementById(key1).value = "";
+            document.getElementById(key2).value = "";
+            document.getElementById(key3).value = "";
+            update_project()
+            update_experience()
+            }
+            display_output()
+        }
+
+        window.addvalue=addvalue
+
+        function display_output() {
+            document.getElementById("output").innerHTML = JSON.stringify(resume)
+        }    
+        
+        
+//  <!-----------------------------------------------------FireBase -------------------------------------------------------- -->
+   
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
         import { getDatabase, ref, onValue, set, get, child,remove} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
         
@@ -107,29 +548,33 @@
         const initialDbdata = ref(db,'user/');
 
         function display(){
-            onValue(initialDbdata, function (snapshot){
+            onValue(initialDbdata,function(snapshot){
                 const data = snapshot.val();
                 let trs = "";
                 if(snapshot.exists()){
                 let userArray =Object.entries(data);
-                let index = 1;  
+                let index = 1; 
+                let num= 0 
                 for(let each of userArray){
+                    // console.log(each)
                    trs = trs + `
                      <tr>
                         <td>${index}</td>
                         <td>${each[1].fullname}</td>
                         <td>${each[1].email}</td>
-                        <td><button class="btn-edit" onclick = 'edit("${each[0]}",${JSON.stringify(each[1])})''>
+                        <td>${each[1].Objective}</td>
+                        <td>${each[1].contact_number}</td>
+                        <td><button class="btn-edit" onclick = 'edit("${each[0]}",${JSON.stringify(each[1])})'>
                                     <ion-icon name="create-outline"></ion-icon>
-                            </button>
+                            </ button>
                         </td>
                          <td>
                             <button class="btn-delete" onclick = Delete('${each[0]}')>
                                 <ion-icon name="trash-outline" ></ion-icon>
                             </button>
                         </td>
-                     </tr>
-                   `
+                     </tr>`
+                   
                    index++
                 }
              }
@@ -141,32 +586,167 @@
         window.display= display
         display()
 
-        // <!-----------------------------------------------------EDIT-------------------------------------------------------- -->
+
+        function update_value(list,id){
+            let li_list = ""
+            for(let each of list){
+                 li_list = li_list + `<li>${each}</li>`
+            }
+            document.getElementById(id).innerHTML = li_list
+        }
+
+
+        function update_course(){
+            let li_list = ""
+            for(let each of resume.course){
+                     li_list = li_list + `<tr>
+                                <td>${each.course_name_1}</td>
+                                <td>${each.institude_name_1}</td>
+                                <td>${each.year_1}</td>
+                                <td>${each.place_1}</td>
+                        </tr>`
+            }
+            document.getElementById("tbody_3").innerHTML = li_list
+        }
+
+        function update_certification(){
+            let li_list = ""
+            for(let each of resume.certification){
+                     li_list = li_list + `<tr>
+                                <td>${each.course_name1}</td>
+                                <td>${each.acadamey_name1}</td>
+                                <td>${each.year_2}</td>
+                                <td>${each.duration_2}</td>
+                        </tr>`
+            }
+            document.getElementById("tbody_2").innerHTML = li_list
+        }
+
+        function update_project(){
+            let li_list = ""
+            for(let each of resume.projects){
+                     li_list = li_list + `<tr>
+                                <td>${each.project_name}</td>
+                                <td>${each.company_name}</td>
+                                <td>${each.Duration_4}</td>
+                        </tr>`
+            }
+            document.getElementById("tbody_1").innerHTML = li_list
+        }
+
+        function update_experience(){
+            let li_list = ""
+            for(let each of resume.workExperience){
+                     li_list = li_list + `<tr>
+                                <td>${each.company_name_4}</td>
+                                <td>${each.Designation_4}</td>
+                                <td>${each.yoe_3}</td>
+                        </tr>`
+            }
+            document.getElementById("tbody_4").innerHTML = li_list
+        }
+
+    // <!-----------------------------------------------------EDIT-------------------------------------------------------- -->
 
         function edit(id,dataString){
-            document.querySelector("#name").value = dataString.fullname
-            document.querySelector("#email").value = dataString.email  
-            document.querySelector("#id").value = id        
-      
+            resume.fullname = dataString.fullname;
+            resume.email = dataString.email;
+            resume.Objective =  dataString.Objective;
+            resume.contact_number = dataString.contact_number;
+            resume.dob = dataString.dob;
+            resume.personal_details = JSON.parse(dataString.personal_details)
+
+            let language_value = JSON.parse(dataString.Language_known)
+            resume.Language_known = language_value
+            update_value(resume.Language_known,"list_1")
+
+            let skill_value = JSON.parse(dataString.skills)
+            resume.skills = skill_value
+            update_value(resume.skills,"list_2")
+
+            let hobbie_value = JSON.parse(dataString.hobbies)
+            resume.hobbies = hobbie_value
+            update_value(resume.hobbies,"list_3")
+
+            let project_value = JSON.parse(dataString.projects)
+            resume.projects = project_value
+            update_project(resume.projects,"tbody_1")
+
+            let certification_value = JSON.parse(dataString.certification)
+            resume.certification = certification_value
+            update_certification(resume.certification,"tbody_2")
+
+            let course_value = JSON.parse(dataString.course)
+            resume.course = course_value
+            update_course(resume.course,"tbody_3")
+         
+            let workexperience_value = JSON.parse(dataString.workExperience)
+            resume.workExperience = workexperience_value
+            update_experience(resume.workExperience,"tbody_4")
+            console.log(resume.workExperience)
+
+            document.querySelector("#name").value = resume.fullname
+            document.querySelector("#email").value = resume.email  
+            document.querySelector("#objective").value = resume.Objective 
+            document.querySelector("#contact_number").value = resume.contact_number 
+            document.querySelector("#dob").value = resume.dob 
+            document.querySelector("#father_name").value = resume.personal_details.father_name
+            document.querySelector("#mother_name").value = resume.personal_details.mother_name
+            document.querySelector("#address").value = resume.personal_details.address
+            // document.querySelector("#hobbies").value = resume.hobbies
+            // document.querySelector("#Language_known").value = resume.Language_known
+            // document.querySelector("#skills").value = resume.skills
+            document.querySelector("#id").value = id     
         }
 
         window.edit = edit
-        
-
+               
         // <!-----------------------------------------------------Update-------------------------------------------------------- -->
 
-        function update(){
+        function updateResume(){
             let id = document.querySelector("#id").value;
-            let nameEl = document.querySelector("#name").value;
-            let emailE1 = document.querySelector("#email").value;
+            let Language_known = JSON.stringify(resume.Language_known)
+            let skills = JSON.stringify(resume.skills)
+            let hobbies = JSON.stringify(resume.hobbies)
+            let course = JSON.stringify(resume.course)
+            let certification = JSON.stringify(resume.certification)
+            let project = JSON.stringify(resume.projects)
+            let workExperience = JSON.stringify(resume.workExperience)
+
+
             set(ref(db,"user/" + id),{
-                fullname : nameEl,
-                email:emailE1,
+                fullname : resume.fullname,
+                email: resume.email,
+                Objective : resume.Objective,
+                contact_number : resume.contact_number,                  
+                dob: resume.dob,
+                personal_details : JSON.stringify(resume.personal_details),
+                Language_known: Language_known,
+                skills: skills,
+                hobbies : hobbies,
+                course:course,
+                projects:project,
+                certification:certification,
+                workExperience:workExperience
             })
+            alert("Successfully Updated")
+            Delete_inputValue()
             display()
         }
 
-            window.update = update;
+            window.updateResume = updateResume;
+
+
+        function Delete_inputValue(){
+            document.querySelector("#name").value = ""
+            document.querySelector("#email").value = ""
+            document.querySelector("#objective").value = ""
+            document.querySelector("#contact_number").value  = ""
+            document.querySelector("#dob").value  = ""
+            document.querySelector("#father_name").value = ""
+            document.querySelector("#mother_name").value  = ""
+            document.querySelector("#address").value  = ""
+        }
 
 
 
@@ -180,7 +760,7 @@
         
 
     
-    </script>
+     </script>
     
 </body>
 </html>
