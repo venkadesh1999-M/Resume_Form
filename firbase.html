@@ -104,7 +104,7 @@
                         <input type="text" id="Language_known" class="form-control" placeholder="Enter Language_known">
                     </div>
                     <div class="col-lg-2 col-sm-2">
-                        <button class="Add" onclick="addArrayValue('Language_known')">Add</button>
+                        <button class="Add" onclick="addArrayValue('Language_known','list_1')">Add</button>
                     </div>
                     <ul id="list_1">
                 
@@ -163,6 +163,7 @@
                             <th>project_name</th>
                             <th>company_name</th>
                             <th>Duration</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody id="tbody_1"></tbody>
@@ -197,6 +198,7 @@
                             <th>acadamy_name</th>
                             <th>year</th>
                             <th>Duartion</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody id="tbody_2">
@@ -236,7 +238,7 @@
                    <!------------------------------------------------GENDER --------------------------------------------->
 
                    <div class="row m-2">
-                    <div class="col-4 mt-4">
+                       <div class="col-4 mt-4">
                             <label>Gender</label>
                     </div>
                     <div class="col-8 d-flex mt-4">
@@ -361,6 +363,7 @@
                             <th>course_name</th>
                             <th>Designaion</th>
                             <th>year</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody id="tbody_4">
@@ -398,6 +401,7 @@
                 <table class="table table-striped w-100 ms-2">
                     <thead>
                         <tr class="ms-2">
+                            <th>S.no</th>
                             <th>course_name</th>
                             <th>institude_name</th>
                             <th>year</th>
@@ -476,13 +480,13 @@
             resume[key].push(value);
             document.getElementById(key).value = "";
             if(key == "Language_known"){
-                update_value(resume.Language_known,"list_1")
+                update_value_1("Language_known","list_1")
             }
             else if(key == "skills"){
-                update_value_1(resume.skills,"list_2")
+                update_value_1("skills","list_2")
             }
             else if(key == "hobbies"){
-                update_value(resume.hobbies,"list_3")
+                update_value_1("hobbies","list_3")
             }
         }
 
@@ -496,7 +500,7 @@
             newObj[key3] = document.getElementById(key3).value;
             newObj[key4] = document.getElementById(key4).value;
             resume[c_key].push(newObj)
-            document.getElementById(key1).value = "";
+            document.getElementById(key1).value = ""; 
             document.getElementById(key2).value = "";
             document.getElementById(key3).value = "";
             document.getElementById(key4).value = "";
@@ -593,34 +597,35 @@
         display()
 
 
-        function update_value(list,id){
+        // function update_value(list,id){
+        //     let li_list = ""
+        //     for(let each of list){
+        //          li_list = li_list + `<li>${each}<button><i class="fa fa-close"></i></button></li>`
+        //     }
+        //     document.getElementById(id).innerHTML = li_list
+        // }
+
+        
+
+        function update_value_1(key,id){
             let li_list = ""
-            for(let each of list){
-                 li_list = li_list + `<li>${each}<button><i class="fa fa-close"></i></button></li>`
+            for(let each of resume[key]){
+                  li_list = li_list + `<li>${each}<button onclick ='delete_li("${each}","${key}","${id}")'><i class="fa fa-close"></i></button></li>`
             }
-            document.getElementById(id).innerHTML = li_list
-        }
-
-
-        function update_value_1(list,id){
-            let li_list = ""
-            for(let each of list){
-                 li_list = li_list + `<li>${each}<button onclick ='delete_li("${each}")'><i class="fa fa-close"></i></button></li>`
-            }
-            document.getElementById(id).innerHTML = li_list
-        }
+            document.getElementById(id).innerHTML = li_list 
+        } 
 
 
 
-        function delete_li(list){
+        function delete_li(val,key,id){
             let a = []
-            for(let each of resume.skills){
-                if(each!=list){
+            for(let each of resume[key]){
+                if(each!=val){
                     a.push(each)
                 }
             }
-            resume.skills = a
-            update_value_1(resume.skills,"list_2")
+            resume[key] = a
+            update_value_1(key,id)
         }
 
         window.delete_li = delete_li        
@@ -628,40 +633,58 @@
 
         function update_course(){
             let li_list = ""
-            for(let each of resume.course){
+            let index = 1
+            let edu = resume.course
+            for(let i=0;i< edu.length;i++){
                      li_list = li_list + `<tr>
-                                <td>${each.course_name_1}</td>
-                                <td>${each.institude_name_1}</td>
-                                <td>${each.year_1}</td>
-                                <td>${each.place_1}</td>
-                                <td><button onclick = 'delete_table(${JSON.stringify(each)})'>Delete</button></td>
+                                <td>${index}</td>
+                                <td>${edu[i].course_name_1}</td>
+                                <td>${edu[i].institude_name_1}</td>
+                                <td>${edu[i].year_1}</td>
+                                <td>${edu[i].place_1}</td>
+                                <td><button onclick = 'delete_table("${i}","course")'>Delete</button></td>
                         </tr>`
+                        index++
             }
             document.getElementById("tbody_3").innerHTML = li_list
         }
 
-        function delete_table(data){
-            
-            let a = [] 
-            for(let each of resume.course){
-                if(data != each){
-                    a[each]
+        function delete_table(index,key){
+            let a = []
+            let edu = resume[key]
+            for(let i in edu){
+                if(i!= index){
+                    a.push(edu[i])
                 }
             }
-            resume.course = a
-            update_course(resume.course,"tbody_3")
+            resume[key] = a
+            if(key == "course"){
+                update_course()
+            }
+            else if(key == "certification"){
+                update_certification()
+            }
+            else if(key == "projects"){
+                update_project()
+            }
+            else if(key == "workExperience"){
+                update_experience()
+            }
+            
         }
 
         window.delete_table = delete_table
 
         function update_certification(){
             let li_list = ""
-            for(let each of resume.certification){
+            let certification = resume.certification
+            for(let i=0;i<certification.length;i++){
                      li_list = li_list + `<tr>
-                                <td>${each.course_name1}</td>
-                                <td>${each.acadamey_name1}</td>
-                                <td>${each.year_2}</td>
-                                <td>${each.duration_2}</td>
+                                <td>${certification[i].course_name1}</td>
+                                <td>${certification[i].acadamey_name1}</td>
+                                <td>${certification[i].year_2}</td>
+                                <td>${certification[i].duration_2}</td>
+                                <td><button onclick = 'delete_table("${i}","certification")'>Delete</button></td>
                         </tr>`
             }
             document.getElementById("tbody_2").innerHTML = li_list
@@ -669,11 +692,13 @@
 
         function update_project(){
             let li_list = ""
-            for(let each of resume.projects){
+            let project = resume.projects
+            for(let i=0;i<project.length;i++){
                      li_list = li_list + `<tr>
-                                <td>${each.project_name}</td>
-                                <td>${each.company_name}</td>
-                                <td>${each.Duration_4}</td>
+                                <td>${project[i].project_name}</td>
+                                <td>${project[i].company_name}</td>
+                                <td>${project[i].Duration_4}</td>
+                            <td><button onclick = 'delete_table("${i}","projects")'>Delete</button></td>
                         </tr>`
             }
             document.getElementById("tbody_1").innerHTML = li_list
@@ -681,11 +706,13 @@
 
         function update_experience(){
             let li_list = ""
-            for(let each of resume.workExperience){
+            let exp = resume.workExperience
+            for(let i=0;i< exp.length;i++){
                      li_list = li_list + `<tr>
-                                <td>${each.company_name_4}</td>
-                                <td>${each.Designation_4}</td>
-                                <td>${each.yoe_3}</td>
+                                <td>${exp[i].company_name_4}</td>
+                                <td>${exp[i].Designation_4}</td>
+                                <td>${exp[i].yoe_3}</td>
+                                <td><button onclick = 'delete_table("${i}","workExperience")'>Delete</button></td>
                         </tr>`
             }
             document.getElementById("tbody_4").innerHTML = li_list
@@ -729,31 +756,31 @@
 
             let language_value = JSON.parse(dataString.Language_known)
             resume.Language_known = language_value
-            update_value(resume.Language_known,"list_1")
+            update_value_1("Language_known","list_1")
 
             let skill_value = JSON.parse(dataString.skills)
             resume.skills = skill_value
-            update_value_1(resume.skills,"list_2")
+            update_value_1("skills","list_2")
 
             let hobbie_value = JSON.parse(dataString.hobbies)
             resume.hobbies = hobbie_value
-            update_value(resume.hobbies,"list_3")
+            update_value_1("hobbies","list_3")
 
             let project_value = JSON.parse(dataString.projects)
             resume.projects = project_value
-            update_project(resume.projects,"tbody_1")
+            update_project()
 
             let certification_value = JSON.parse(dataString.certification)
             resume.certification = certification_value
-            update_certification(resume.certification,"tbody_2")
+            update_certification()
 
             let course_value = JSON.parse(dataString.course)
             resume.course = course_value
-            update_course(resume.course,"tbody_3")
+            update_course()
          
             let workexperience_value = JSON.parse(dataString.workExperience)
             resume.workExperience = workexperience_value
-            update_experience(resume.workExperience,"tbody_4")
+            update_experience()
 
            
         }
